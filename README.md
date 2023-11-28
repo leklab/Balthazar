@@ -4,7 +4,7 @@ Balthazar (this repository) is used to create the oligo library needed for the s
 Gagarmel repository is used to process the raw data from NGS to quantify the enrichment of the variants.
 Azrael repository is used to generate and analyze the functional scores, and plot the results.
 
-Requirements:    
+**Requirements:**    
 Python (tested on v2.7.16)    
 R (tested on v4.1.2)    
 BWA/0.7.15-foss-2016a    
@@ -12,7 +12,7 @@ SAMtools
 FASTX-Toolkit/0.0.14-GCCcore-10.2.0    
 picard/2.9.0-Java-1.8.0_121    
 
-R libraries required:    
+**R libraries required:**    
 ggplot2    
 
 ## Specific steps and command lines:

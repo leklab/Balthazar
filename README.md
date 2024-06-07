@@ -1,8 +1,9 @@
-**Saturation Mutagenesis-Reinforced Functional Assays (SMuRF)** is an accessible workflow for deep mutational scanning (DMS) studies. The manuscript is currently available on BioRxiv: https://www.biorxiv.org/content/10.1101/2023.07.12.548370v3. This workflow involves a 2-way extension PCR-based saturation mutagenesis and high-throughput functional assays that can be evaluated with short-read Next-generation sequencing. We have organized scripts used for SMuRF across three repositories:
+**Saturation Mutagenesis-Reinforced Functional Assays (SMuRF)** is an accessible workflow for deep mutational scanning (DMS) studies. The manuscript is currently available on BioRxiv: https://www.biorxiv.org/content/10.1101/2023.07.12.548370v3. This workflow involves a 2-way extension PCR-based saturation mutagenesis and high-throughput functional assays that can be evaluated with short-read Next-generation sequencing. 
 
-**Balthazar (this repository)** is used to create the oligo library needed for the saturation mutagenesis as well as perform QC for the resulting construct.    
-**Gagarmel repository** is used to process the raw data from NGS to quantify the enrichment of the variants.    
-**Azrael repository** is used to generate and analyze the functional scores, and plot the results.   
+We have organized scripts used for SMuRF across three repositories:
+* **Balthazar (this repository)** is used to create the oligo library needed for the saturation mutagenesis as well as perform QC for the resulting construct.    
+* [**Gagarmel repository**](https://github.com/leklab/Gargamel) is used to process the raw data from NGS to quantify the enrichment of the variants.    
+* [**Azrael repository**](https://github.com/leklab/Azrael) is used to generate and analyze the functional scores, and plot the results.   
 
 ## Requirements   
 * Python (tested on v2.7.16)    
@@ -54,23 +55,32 @@ Rscript --vanilla all_possible_SNVs_plot.r all_possible_SNVs
 
 This package identifies two groups of variants that might be underrepresented in the pool due to the limitation of the cloning method.
 
-*group1* will introduce a cut before the variants which will remove the variant from the top strand
-*group2* will introduce a cut right after the variants which might affect the elongation of the top strand
-
+*group1*: will introduce a cut before the variants which will remove the variant from the top strand  
+*group2*: will introduce a cut right after the variants which might affect the elongation of the top strand  
+```
+# FKRP example
 python cloning_alert_FKRP.py fkrp_1to1485.fasta all_possible_SNVs_FKRP out_FKRP
-python cloning_alert_LARGE1.py large1_1to2268.fasta all_possible_SNVs_LARGE1 out_LARGE1
 
+# LARGE1 example
+python cloning_alert_LARGE1.py large1_1to2268.fasta all_possible_SNVs_LARGE1 out_LARGE1
+```
 ## 3. Generate all oligos to synthesize
 
 **important notes** are in the python scripts
 ```
+# FKRP example
 python PALS_C_oligos_FKRP.py FKRP_oligo_to_order_out.fa
+
+# LARGE1 example
 python PALS_C_oligos_LARGE1.py LARGE1_oligo_to_order_out.fa
 ```
 ## 4. Plasmid pool QC
 
 The jobs were run on Yale HPC Ruddle (RIP)
 ```
+# FKRP example
 Sbatch QC_FKRP.slurm
+
+# LARGE1 example
 Sbatch QC_LARGE1.slurm
 ```

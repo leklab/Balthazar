@@ -4,37 +4,51 @@
 **Gagarmel repository** is used to process the raw data from NGS to quantify the enrichment of the variants.    
 **Azrael repository** is used to generate and analyze the functional scores, and plot the results.   
 
-**Requirements:**    
-Python (tested on v2.7.16)    
-R (tested on v4.1.2)    
-BWA/0.7.15-foss-2016a    
-SAMtools    
-FASTX-Toolkit/0.0.14-GCCcore-10.2.0    
-picard/2.9.0-Java-1.8.0_121    
+## Requirements   
+* Python (tested on v2.7.16)    
+* R (tested on v4.1.2)    
+* BWA (tested on v0.7.15)    
+* SAMtools    
+* FASTX-Toolkit (tested on v0.0.14)    
+* picard 2.9.0 (tested on v0.7.17)
 
-**R libraries required:**    
+### R libraries required    
+```
 ggplot2    
-
-## Specific steps and command lines:
-
+```
 
 ## 1. Generate all possible SNVs of the GOIs
 
+### Input files
 
-*clinvar_result_FKRP_04202023.txt* and *clinvar_result_04202023_LARGE1.txt* was manually downloaded from ClinVar webpage.
+1. Fasta file containing coding sequence of gene of interest
+2. Clinvar data file subsetted to gene of interest
 
-### for FKRP
+### FKRP example
+Files associated with this example are in `all_possible_SNVs/fkrp`
+```
+# Generate a file containing all possible SNVs
+python mutation_classfication.py fkrp_1to1485.fasta all_possible_SNVs
 
-python 22.1.25\ mutation\ classfication\ v3.py fkrp_1to1485.fasta all_possible_SNVs
-python add_ClinVar_to_allpossibleSNVs_FKRP.py all_possible_SNVs clinvar_result_FKRP_04202023.txt fkrp_1to1485.fasta all_possible_SNVs_with_clinvar_FKRP_04202023
+# Add ClinVar annotation to this file
+python add_ClinVar_to_allpossibleSNVs_FKRP.py all_possible_SNVs clinvar_result_FKRP_04202023.txt fkrp_1to1485.fasta 
+all_possible_SNVs_with_clinvar_FKRP_04202023
+
+# Create a barplot in R
 Rscript --vanilla all_possible_SNVs_plot.r all_possible_SNVs
+```
+### LARGE1 example
+Files associated with this example are in `all_possible_SNVs/large1`
+```
+# Generate a file containing all possible SNVs
+python mutation_classfication.py large1_1to2268.fasta all_possible_SNVs
 
-### for LARGE1
-
-python 22.1.25\ mutation\ classfication\ v3.py large1_1to2268.fasta all_possible_SNVs
+# Add ClinVar annotation to this file
 python add_ClinVar_to_allpossibleSNVs_LARGE1.py all_possible_SNVs clinvar_result_04202023_LARGE1.txt large1_1to2268.fasta all_possible_SNVs_with_clinvar_LARGE1_04202023
-Rscript --vanilla all_possible_SNVs_plot.r all_possible_SNVs
 
+# Create a barplot in R
+Rscript --vanilla all_possible_SNVs_plot.r all_possible_SNVs
+```
 
 ## 2. Call the variants that may be less represented in the pool
 
@@ -49,13 +63,14 @@ python cloning_alert_LARGE1.py large1_1to2268.fasta all_possible_SNVs_LARGE1 out
 ## 3. Generate all oligos to synthesize
 
 **important notes** are in the python scripts
-
+```
 python PALS_C_oligos_FKRP.py FKRP_oligo_to_order_out.fa
 python PALS_C_oligos_LARGE1.py LARGE1_oligo_to_order_out.fa
-
+```
 ## 4. Plasmid pool QC
 
 The jobs were run on Yale HPC Ruddle (RIP)
-
+```
 Sbatch QC_FKRP.slurm
 Sbatch QC_LARGE1.slurm
+```

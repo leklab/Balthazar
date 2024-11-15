@@ -66,14 +66,8 @@ python cloning_alert_LARGE1.py large1_1to2268.fasta all_possible_SNVs_LARGE1 out
 ```
 ## 3. Generate all oligos to synthesize
 
-**important notes** are in the python scripts
-```
-# FKRP example
-python PALS_C_oligos_FKRP.py FKRP_oligo_to_order_out.fa
+**README.md** in the oligo generator directory
 
-# LARGE1 example
-python PALS_C_oligos_LARGE1.py LARGE1_oligo_to_order_out.fa
-```
 ## 4. Plasmid pool QC
 
 The jobs were run on Yale HPC Ruddle (RIP)

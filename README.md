@@ -52,6 +52,21 @@ python add_ClinVar_to_allpossibleSNVs_LARGE1.py all_possible_SNVs clinvar_result
 Rscript --vanilla all_possible_SNVs_plot.r all_possible_SNVs
 ```
 
+### A generalized script is also provided, which is applicable to other genes of interest.
+
+Please find the **scripts** and the **readme.md** in the cloning alert directory
+
+```
+
+# all_possible_SNVs_test.txt were generated with SNV_mutation_classification.py.
+# all_possible_NNKmut_test.txt were generated with NNK_mutation_classification.py.
+
+python SNV_mutation_classification.py test_input.fa all_possible_SNVs_test.txt 7311 8796
+python NNK_mutation_classification.py test_input.fa all_possible_NNKmut_test.txt 7311 8796
+
+```
+
+
 ## 2. Call the variants that may be less represented in the pool
 
 This package identifies two groups of variants that might be underrepresented in the pool due to the limitation of the cloning method.

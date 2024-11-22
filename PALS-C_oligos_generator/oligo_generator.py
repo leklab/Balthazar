@@ -11,6 +11,11 @@ import sys
 def rev(seq):
     return str(Seq(seq).reverse_complement())
 
+#check if a sequence appears only once in another sequence and its reverse complement
+def only_once(x, y):
+    num = y.count(x)
+    rev_num = rev(y).count(x)
+    return num + rev_num == 1
 
 # make a mutation dictionary
 mut_dict = {
@@ -162,7 +167,8 @@ def main():
 
             if (check_seq not in blocks[i] and
                     check_seq not in rev(blocks[i]) and
-                    recog_right not in recog_right_memory):
+                    recog_right not in recog_right_memory and
+                    only_once(type2s_recog,blocks[i]+type2s_recog+recog_right)):
                 recog_right_memory.append(recog_right)
                 block_adaptor[i] = barcode_list[i] + type2s_recog + recog_right
                 break

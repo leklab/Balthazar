@@ -1,0 +1,6 @@
+enzyme	recognition_sequence	recog_right_size	insulator_size
+BsmBI	CGTCTC	5	4
+BsaI	GGTCTC	5	4
+BbsI	GAAGAC	6	4
+BspMI	ACCTGC	8	4
+PaqCI	CACCTGC	8	4

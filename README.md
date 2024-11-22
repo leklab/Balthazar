@@ -6,7 +6,8 @@ We have organized scripts used for SMuRF across three repositories:
 * [**Azrael repository**](https://github.com/leklab/Azrael) is used to generate and analyze the functional scores, and plot the results.   
 
 ## Requirements   
-* Python (tested on v2.7.16)    
+* Python (tested on v2.7.16 or v3.6)
+* BioPython (tested on v1.78)   
 * R (tested on v4.1.2)    
 * BWA (tested on v0.7.15)    
 * SAMtools    
@@ -57,16 +58,12 @@ This package identifies two groups of variants that might be underrepresented in
 
 *group1*: will introduce a cut before the variants which will remove the variant from the top strand  
 *group2*: will introduce a cut right after the variants which might affect the elongation of the top strand  
-```
-# FKRP example
-python cloning_alert_FKRP.py fkrp_1to1485.fasta all_possible_SNVs_FKRP out_FKRP
 
-# LARGE1 example
-python cloning_alert_LARGE1.py large1_1to2268.fasta all_possible_SNVs_LARGE1 out_LARGE1
-```
+**readme.md** in the cloning alert directory
+
 ## 3. Generate all oligos to synthesize
 
-**README.md** in the oligo generator directory
+**readme.md** in the oligo generator directory
 
 ## 4. Plasmid pool QC
 

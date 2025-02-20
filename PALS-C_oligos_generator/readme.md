@@ -78,6 +78,14 @@ The synthesized oligos are ready for use for PALS-C cloning.
 
 We picked 5 Type IIs enzymes and added them in the default_enzymes.tsv file.
 
+|enzyme|recognition_sequence|recog_right_size|insulator_size
+|-|-|-|-
+|BsmBI|CGTCTC|5|4
+|BsaI|GGTCTC|5|4
+|BbsI|GAAGAC|6|4
+|BspMI|ACCTGC|8|4
+|PaqCI|CACCTGC|8|4
+
 The inclusion criteria were:
 
 - Keeping only one enzyme of the isoschizomers.
@@ -87,14 +95,6 @@ The inclusion criteria were:
 - Removing enzymes with a > 8 nt cutting site length.
 
 Other enzymes that meet the inclusion criteria can be added to the default_enzymes.tsv file.
-
-|enzyme|recognition_sequence|recog_right_size|insulator_size
-|-|-|-|-
-|BsmBI|CGTCTC|5|4
-|BsaI|GGTCTC|5|4
-|BbsI|GAAGAC|6|4
-|BspMI|ACCTGC|8|4
-|PaqCI|CACCTGC|8|4
 
 ## Barcodes
 

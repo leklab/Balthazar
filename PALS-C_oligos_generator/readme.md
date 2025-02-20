@@ -52,12 +52,27 @@ The script performs the following steps:
 - Reads the barcode file to generate unique adaptors for each oligo.
 - Generates mutations based on the chosen mode and writes the results to the output file.
 
-
 # Notes
 
 ## test_input.fa
 
-test_input.fa is the sequence of Addgene plasmid 205150.
+test_input.fa is the sequence of Addgene plasmid 205150 in the FASTA format.
+
+
+## output.fasta
+
+output.fasta contains sequences of the oligos to order.
+
+For instance, the example commands generate 4,455 oligos to order.
+
+The synthesized oligos are ready for use for PALS-C cloning.
+
+## Output printed on the screen of the example command:
+
+    Block number: 6
+    Block size except the last: 248
+    Last block size: 245
+    Type2S enzyme: BsmBI
 
 ## Details of default_enzymes.tsv
 

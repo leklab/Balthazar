@@ -73,6 +73,12 @@ The synthesized oligos are ready for use for PALS-C cloning.
     Block size except the last: 248
     Last block size: 245
     Type2S enzyme: BsmBI
+    Block1-specific R1 primer: 5'-CTGACTCACGTCTCCTTAC-3'
+    Block2-specific R1 primer: 5'-AGGCGACTCGTCTCGTAGC-3'
+    Block3-specific R1 primer: 5'-CGCTTGAACGTCTCCCTAC-3'
+    Block4-specific R1 primer: 5'-GCATGAGGCGTCTCGTTCA-3'
+    Block5-specific R1 primer: 5'-GTTTCCCGCGTCTCCCTAA-3'
+    Block6-specific R1 primer: 5'-TGAAAGACCGTCTCCGATA-3'
 
 ## Details of default_enzymes.tsv
 

@@ -171,6 +171,7 @@ def main():
                     only_once(type2s_recog,blocks[i]+type2s_recog+recog_right)):
                 recog_right_memory.append(recog_right)
                 block_adaptor[i] = barcode_list[i] + type2s_recog + recog_right
+                print(f" Block{i + 1}-specific R1 primer: 5'-{block_adaptor[i]}-3' ")
                 break
 
 # Generate mutations
